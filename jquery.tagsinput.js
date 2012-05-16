@@ -187,6 +187,7 @@
       'unique':true,
       removeWithBackspace:true,
       placeholderColor:'#666666',
+      placeholder: '',
       autosize: true,
       comfortZone: 20,
       inputPadding: 6*2
@@ -221,7 +222,14 @@
 			var markup = '<div id="'+id+'_tagsinput" class="tagsinput"><div id="'+id+'_addTag">';
 			
 			if (settings.interactive) {
-				markup = markup + '<input id="'+id+'_tag" value="" data-default="'+settings.defaultText+'" />';
+        if(settings.placeholder != '')
+        {
+          markup = markup + '<input id="'+id+'_tag" value="" placeholder="'+settings.placeholder+'" />';
+        }
+        else
+        {
+          markup = markup + '<input id="'+id+'_tag" value="" data-default="'+settings.defaultText+'" />';
+        }
 			}
 			
 			markup = markup + '</div><div class="tags_clear"></div></div>';
